@@ -21,11 +21,6 @@ Inside nzbiketracker directory
 `pip install -r requirements.txt`
 
 
-**Make the Files Executable**
-
-`chmod +x nzbiketracker.sh update.py`
-
-
 **Start Update.py script**
 
 This will create the bike database, loop every 60 seconds to pole the 3rd party api for new bike objects and insert the results into the database. *- temporary*
