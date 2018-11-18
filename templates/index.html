@@ -24,19 +24,23 @@
           center: {lat: -41.290777, lng: 174.7791503},
           zoom: 15
         });
-        $.get('/api/update', function(result) {
-          for (var i = 0; i < result.length; ++i) {
-            var location = result[i];
-            var marker = new google.maps.Marker({
-              position: {
-                  lat: location[0],
-                  lng: location[1]
-              },
-              map: map,
-              animation: google.maps.Animation.DROP
-            })
-          }
-        });
+        function updateMap(){
+          $.get('/api/update', function(result) {
+            for (var i = 0; i < result.length; ++i) {
+              var location = result[i];
+              var marker = new google.maps.Marker({
+                position: {
+                    lat: location[0],
+                    lng: location[1]
+                },
+                map: map,
+                animation: google.maps.Animation.DROP
+              })
+            }
+          });
+        }
+        updateMap();
+        setInterval(updateMap, 60000);
       }
     </script>
     <script
